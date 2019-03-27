@@ -3,7 +3,9 @@ package co.tiagoaguiar.facebook;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -24,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
 
     RecyclerView rv = findViewById(R.id.recycler_view);
+
+    DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(),
+            DividerItemDecoration.VERTICAL);
+    dividerItemDecoration.setDrawable(ContextCompat.getDrawable(this, R.drawable.divider));
+    rv.addItemDecoration(dividerItemDecoration);
+
     rv.setLayoutManager(new LinearLayoutManager(this));
     postAdapter = new PostAdapter();
     rv.setAdapter(postAdapter);
@@ -33,10 +41,14 @@ public class MainActivity extends AppCompatActivity {
 
     post1.setImageViewUser(R.drawable.jon_snow);
     post1.setImageViewPost(R.drawable.post_1);
+    post1.setTextViewTime("2 min");
     post1.setTextViewUsername("Jon Snow");
     post1.setTextViewContent("No matter what Ygritte says, Jon Snow knows a few things. The bastard son of Ned Stark (or is he?) grew up in a household where he was welcomed by Ned and his half-siblings but not so much by Catelyn Stark. When the opportunity came to join the Night's Watch at Castle Black, he saw");
     post1.setTextViewTitle("gameofthrones.com".toUpperCase());
     post1.setTextViewSubtitle("Game of Thrones is an American fantasy drama television series created by David Benioff and D. B. Weiss. It is an adaptation of A Song of Ice and Fire, George R. R. Martin's series of fantasy novels, the first of which is A Game of Thrones");
+    posts.add(post1);
+    posts.add(post1);
+    posts.add(post1);
     posts.add(post1);
 
 
@@ -66,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void bind(Post post) {
-      imageViewUser.setImageResource(post.getImageViewPost());
+      imageViewUser.setImageResource(post.getImageViewUser());
       textViewTime.setText(post.getTextViewTime());
       textViewUsername.setText(post.getTextViewUsername());
       textViewContent.setText(post.getTextViewContent());
