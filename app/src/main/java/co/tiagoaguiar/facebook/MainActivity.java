@@ -4,11 +4,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -25,6 +29,14 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+
+    TabLayout tabLayout = findViewById(R.id.top_nav);
+    tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.feed));
+    tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.request));
+    tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.users));
+    tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.watch));
+    tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.notify));
+    tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.more));
 
     RecyclerView rv = findViewById(R.id.recycler_view);
 
