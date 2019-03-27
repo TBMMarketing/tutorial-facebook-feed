@@ -70,6 +70,15 @@ public class MainActivity extends AppCompatActivity {
     post2.setTextViewContent("My ability to see visions in the flames, and completely trusts in the power of her god, R'hllor. Although she acknowledges that visions can be misinterpreted,[8] she has faith in her ability to correctly interpret visions, even if the vision does not entirely agree with the proposed interpretation.[4] ");
     posts.add(post2);
 
+    Post post3 = new Post();
+    post3.setImageViewUser(R.drawable.sansa);
+    post3.setImageViewPost(R.drawable.post_3);
+    post3.setTextViewTime("45 min");
+    post3.setTextViewUsername("Sansa Stark");
+    post3.setTextViewContent("For years we’ve discovered the wonderfully complex world of Westeros and followed a medley of different stories, locations, and characters, but the heart of the series has always been with the Stark family.");
+    posts.add(post3);
+
+
     postAdapter.setPosts(posts);
     postAdapter.notifyDataSetChanged();
   }
